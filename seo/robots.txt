@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourdomain.com/seo/sitemap.xml
+Sitemap: https://decor-riyadh.netlify.app/seo/sitemap.xml
