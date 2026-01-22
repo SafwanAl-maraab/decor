@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Riyadh Decoration</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <div class="logo"><h2 style="color: var(--accent-color); margin: 0;">Riyadh Decoration</h2></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html" class="text-accent">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div>
+            <button id="theme-toggle" style="background:none; border:none; color:white; cursor:pointer;">🌙</button>
+            <button id="lang-toggle" onclick="location.href='/about.html'" style="background:var(--accent-color); border:none; color:white; padding: 5px 10px; border-radius: 4px; cursor:pointer; margin-left: 10px;">AR</button>
+        </div>
+    </div>
+</nav>
+
+<section class="section-padding">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; align-items: center;">
+            <div>
+                <h2 class="text-accent" style="margin-bottom: 20px;">Riyadh Decoration</h2>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 20px;">
+                    We specialize in woodwork under our own brand, with interior design and professional execution carried out by a highly capable and trained team.
+                </p>
+                <p style="font-size: 1.1rem; color: var(--text-secondary);">
+                    We provide a comprehensive range of decoration products and innovative solutions to transform your homes and spaces into places that pulse with elegance and distinction. Our vision is to provide guaranteed quality and fast service at competitive prices across all regions of Riyadh.
+                </p>
+            </div>
+            <div>
+                <img src="/assets/images/about/about-img.jpg" alt="Riyadh Decoration Team" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Riyadh Decoration. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="/assets/js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+:root {
+  /* Light Theme Colors */
+  --primary-color: #0b1c2d;
+  --accent-color: #d4af37;
+  --bg-color: #FAF9F6;
+  --card-bg: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A4A4A;
+  --border-color: #E5E5E5;
+  --transition: all 0.3s ease;
+}
+
+.dark {
+  --primary-color: #FAF9F6;
+  --accent-color: #d4af37;
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-primary: #F5F5F5;
+  --text-secondary: #B0B0B0;
+  --border-color: #334155;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Riyadh Decoration</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0b1c2d',
+              accent: '#d4af37',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        .filter-btn {
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid #d4af37;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: #d4af37;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-[#0f172a] text-gray-900 dark:text-white transition-colors duration-300">
+
+<header id="mainHeader" class="fixed top-0 w-full z-50 bg-white/80 dark:bg-[#0b1c2d]/90 backdrop-blur-xl border-b border-black/5 dark:border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        <div class="flex items-center gap-3">
+            <img src="/assets/images/logo/logo.png" class="h-11 w-auto drop-shadow">
+            <div class="leading-tight">
+                <span class="block font-extrabold text-lg tracking-wide text-[#0b1c2d] dark:text-white">Riyadh Decoration</span>
+            </div>
+        </div>
+        <nav class="hidden md:flex gap-8 font-semibold text-sm">
+            <a href="index.html" class="hover:text-[#d4af37] transition">Home</a>
+            <a href="services.html" class="hover:text-[#d4af37] transition">Services</a>
+            <a href="portfolio.html" class="hover:text-[#d4af37] transition">Portfolio</a>
+            <a href="gallery.html" class="text-[#d4af37] transition">Gallery</a>
+            <a href="about.html" class="hover:text-[#d4af37] transition">About Us</a>
+            <a href="contact.html" class="hover:text-[#d4af37] transition">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+            <button onclick="toggleTheme()" class="p-2 rounded-lg bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+            </button>
+            <a href="/gallery.html" class="hidden sm:block border border-gray-300 dark:border-white/30 px-3 py-1 rounded-lg text-sm font-bold hover:bg-gray-200 dark:hover:bg-white/10 transition">AR</a>
+        </div>
+    </div>
+</header>
+
+<section class="py-32 bg-gray-50 dark:bg-[#0f172a]">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-4xl font-bold text-center mb-10">Our Work Gallery</h2>
+        
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="decor">Decor</button>
+            <button class="filter-btn" data-filter="gypsum">Gypsum</button>
+            <button class="filter-btn" data-filter="paint">Paint</button>
+            <button class="filter-btn" data-filter="outdoor-paint">Outdoor Paint</button>
+            <button class="filter-btn" data-filter="closets">Closets</button>
+            <button class="filter-btn" data-filter="shades">Shades</button>
+            <button class="filter-btn" data-filter="wood">Woodwork</button>
+            <button class="filter-btn" data-filter="doors">Doors</button>
+        </div>
+
+        <div id="galleryGrid" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+    </div>
+</section>
+
+<footer class="bg-[#0b1c2d] text-white pt-16 pb-8">
+    <div class="text-center text-gray-400 text-sm">© All Rights Reserved — Riyadh Decoration</div>
+</footer>
+
+<script src="/assets/js/theme.js"></script>
+<script>
+const folders = ["decor", "gypsum", "paint", "outdoor-paint", "closets", "parquet", "shades", "wood", "screens", "doors"];
+const gallery = document.getElementById("galleryGrid");
+const basePath = "/assets/works/";
+
+folders.forEach(folder => {
+  ["1", "2", "3", "4"].forEach(img => {
+    const div = document.createElement("div");
+    div.className = `gallery-item ${folder} group relative overflow-hidden rounded-xl shadow-lg`;
+    div.innerHTML = `
+      <img loading="lazy" src="${basePath}${folder}/${img}.jpg" onerror="this.parentElement.remove()" class="w-full h-64 object-cover lazy-img scale-95 opacity-0 transition-all duration-700 group-hover:scale-110">
+      <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+        <button onclick="openLightbox('${basePath}${folder}/${img}.jpg')" class="bg-white px-5 py-2 rounded-full font-bold">View</button>
+      </div>
+    `;
+    gallery.appendChild(div);
+  });
+});
+
+const buttons = document.querySelectorAll(".filter-btn");
+buttons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".filter-btn.active").classList.remove("active");
+    btn.classList.add("active");
+    const filter = btn.dataset.filter;
+    document.querySelectorAll(".gallery-item").forEach(item => {
+      item.style.display = (filter === "all" || item.classList.contains(filter)) ? "block" : "none";
+    });
+  });
+});
+
+function openLightbox(src){
+  const box = document.createElement("div");
+  box.className = "fixed inset-0 bg-black/80 flex items-center justify-center z-[100]";
+  box.innerHTML = `<div class="relative max-h-[90vh] max-w-[90vw]"><img src="${src}" class="rounded-lg shadow-2xl"><button class="absolute -top-10 -right-10 text-white text-3xl">&times;</button></div>`;
+  box.onclick = () => box.remove();
+  document.body.appendChild(box);
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.remove("opacity-0","scale-95");
+      entry.target.classList.add("opacity-100","scale-100");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+
+document.addEventListener("DOMContentLoaded",()=>{
+  setTimeout(() => {
+    document.querySelectorAll(".lazy-img").forEach(img=>{
+      observer.observe(img);
+    });
+  }, 100);
+});
+</script>
+</body>
+</html>

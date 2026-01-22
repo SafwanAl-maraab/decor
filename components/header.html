@@ -1,0 +1,91 @@
+<header class="fixed top-0 w-full bg-white dark:bg-[#0b1c2d] shadow z-50 transition">
+
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+
+    <!-- LOGO -->
+    <div class="flex items-center gap-2">
+      <img src="assets/images/logo/logo.png" alt="ديكورات الرياض" class="h-10">
+      <span class="font-bold text-lg text-[#0b1c2d] dark:text-white">
+        ديكورات الرياض
+      </span>
+    </div>
+
+    <!-- NAV LINKS -->
+    <nav class="hidden md:flex gap-6 font-semibold">
+
+      <a href="index.html" class="hover:text-[#d4af37] transition">
+        الرئيسية
+      </a>
+
+      <a href="services.html" class="hover:text-[#d4af37] transition">
+        خدماتنا
+      </a>
+
+      <a href="portfolio.html" class="hover:text-[#d4af37] transition">
+        أعمالنا
+      </a>
+
+      <a href="gallery.html" class="hover:text-[#d4af37] transition">
+        ألبوم الصور
+      </a>
+
+      <a href="about.html" class="hover:text-[#d4af37] transition">
+        من نحن
+      </a>
+
+      <a href="contact.html" class="hover:text-[#d4af37] transition">
+        تواصل معنا
+      </a>
+
+    </nav>
+
+    <!-- ACTION BUTTONS -->
+    <div class="flex items-center gap-3">
+
+      <!-- DARK MODE -->
+      <button onclick="toggleTheme()"
+        class="border px-3 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+        🌙
+      </button>
+
+      <!-- INSTAGRAM -->
+      <a href="https://www.instagram.com/sslr05"
+         target="_blank"
+         class="hidden sm:flex items-center justify-center bg-pink-500 text-white w-9 h-9 rounded-full hover:scale-110 transition">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <!-- WHATSAPP -->
+      <a href="https://wa.me/966500578987"
+         target="_blank"
+         class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">
+        واتساب
+      </a>
+
+      <!-- MOBILE MENU BUTTON -->
+      <button id="menuBtn" class="md:hidden text-2xl">
+        ☰
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu"
+       class="hidden bg-white dark:bg-[#0b1c2d] md:hidden border-t">
+
+    <nav class="flex flex-col p-4 gap-3 font-semibold">
+
+      <a href="index.html">الرئيسية</a>
+      <a href="services.html">خدماتنا</a>
+      <a href="portfolio.html">أعمالنا</a>
+      <a href="gallery.html">ألبوم الصور</a>
+      <a href="about.html">من نحن</a>
+      <a href="contact.html">تواصل معنا</a>
+
+    </nav>
+
+  </div>
+
+</header>
