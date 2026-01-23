@@ -122,6 +122,8 @@ EN
               <button class="filter-btn" data-filter="screens">خلفيات شاشة</button>
               <button class="filter-btn" data-filter="backbad">  خلفيات سراير </button>
                <button class="filter-btn" data-filter="backsh">  خلفيات بديل شيبورد </button>
+                   <button class="filter-btn" data-filter="nalat">    نعلات  </button>
+                    <button class="filter-btn" data-filter="wall">    ورق حائط  </button>
         </div>
 
         <!-- GALLERY GRID -->
@@ -178,13 +180,13 @@ EN
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const folders = ["decor", "gypsum", "paint", "paint_out", "closets", "parquet", "shades", "mr", "form", "partation", "door", "screens","backbad","backsh"];
+    const folders = ["decor", "gypsum", "paint", "paint_out", "closets", "parquet", "shades", "mr", "form", "partation", "door", "screens","backbad","backsh","nalat","wall"];
     const gallery = document.getElementById("galleryGrid");
     const basePath = "assets/works/";
     
     // Generate Items
     folders.forEach(folder => {
-        for (let i = 1; i <= 20; i++) { // Check up to 8 images per folder
+        for (let i = 1; i <= 25; i++) { // Check up to 8 images per folder
             const div = document.createElement("div");
             div.className = `gallery-item ${folder} group relative overflow-hidden rounded-xl shadow-lg`;
             
